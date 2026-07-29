@@ -26,7 +26,7 @@ COPY . .
 
 # Install PHP dependencies (no scripts, since we have no .env yet at build time)
 ENV COMPOSER_ALLOW_SUPERUSER=1
-RUN composer install --no-dev --optimize-autoloader --no-scripts
+RUN composer install --no-dev --optimize-autoloader --no-scripts --ignore-platform-req=ext-mongodb
 
 # Start: cache config at runtime (so ENV vars from Railway are available), then serve
 CMD php artisan config:cache && php artisan route:cache && php artisan view:cache && php artisan serve --host=0.0.0.0 --port=${PORT:-8080}
