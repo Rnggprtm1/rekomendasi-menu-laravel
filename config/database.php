@@ -16,7 +16,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'sqlite'),
+    'default' => env('DB_CONNECTION', 'mongodb'),
 
     /*
     |--------------------------------------------------------------------------
@@ -41,8 +41,12 @@ return [
 
         'mongodb' => [
             'driver'   => 'mongodb',
-            'dsn'      => env('MONGODB_URI', 'mongodb://localhost:27017'),
+            'dsn'      => env('MONGODB_URI', null),
+            'host'     => env('DB_HOST', '127.0.0.1'),
+            'port'     => env('DB_PORT', 27017),
             'database' => env('DB_DATABASE', 'rekomendasiMenu'),
+            'username' => env('DB_USERNAME', null),
+            'password' => env('DB_PASSWORD', null),
         ],
 
 
