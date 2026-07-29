@@ -6,7 +6,7 @@
     <meta name="description" content="Kirim saran atau usulan resep baru ke Rekomendasi Menu Masakan.">
     <title>Kotak Saran — Rekomendasi Menu Masakan</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="/css/style.css">
     <style>
         .saran-container {
             max-width: 720px;
@@ -340,7 +340,7 @@
                         <div class="form-group">
                             <label>Gambar Masakan</label>
                             <div class="upload-zone" onclick="document.getElementById('imageUpload').click()" id="dropZone">
-                                <img id="imagePreview" src="{{ asset('images/default.jpg') }}">
+                                <img id="imagePreview" src="/images/default.jpg">
                                 <p style="color:#94a3b8; font-size:0.82em; margin:0;">
                                     <i class="fas fa-cloud-upload-alt" style="margin-right:6px;"></i>Klik untuk pilih gambar
                                 </p>

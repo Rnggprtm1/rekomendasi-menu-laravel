@@ -8,7 +8,7 @@
     <title>Rekomendasi Menu Masakan</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
@@ -135,9 +135,9 @@
         const recipes = JSON.parse(document.getElementById('recipes-data').textContent);
     </script>
 
-    <script src="{{ asset('js/search.js') }}"></script>
-    <script src="{{ asset('js/ui.js') }}"></script>
-    <script src="{{ asset('js/timer.js') }}"></script>
+    <script src="/js/search.js"></script>
+    <script src="/js/ui.js"></script>
+    <script src="/js/timer.js"></script>
 </body>
 
 </html>

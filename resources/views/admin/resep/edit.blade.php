@@ -34,7 +34,7 @@
                 <label>Gambar Masakan</label>
                 <div style="border: 2px dashed #334155; border-radius: 10px; padding: 16px; text-align:center; cursor:pointer; transition: border-color 0.2s;" onclick="document.getElementById('imageUpload').click()" id="dropZone">
                     <img id="imagePreview"
-                         src="{{ asset($recipe->image ?? 'images/default.jpg') }}"
+                         src="/{{ $recipe->image ?? 'images/default.jpg' }}"
                          style="max-height:150px; max-width:100%; border-radius:8px; display:block; margin:0 auto 10px; object-fit:cover;">
                     <p style="color:#94a3b8; font-size:0.82em; margin:0;"><i class="fas fa-cloud-upload-alt" style="margin-right:6px;"></i>Klik untuk ganti gambar</p>
                     <p style="color:#475569; font-size:0.75em; margin:4px 0 0;">Format: JPG, JPEG, PNG, WEBP (Maks. 2MB) &mdash; Kosongkan jika tidak ingin mengganti</p>

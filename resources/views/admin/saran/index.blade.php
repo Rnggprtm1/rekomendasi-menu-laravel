@@ -65,7 +65,7 @@
                     {{-- Gambar & Info --}}
                     <div style="display:flex;gap:16px;margin-bottom:14px;flex-wrap:wrap">
                         @if($saran->image && $saran->image !== 'images/default.jpg')
-                        <img src="{{ asset($saran->image) }}" alt="Gambar Resep"
+                        <img src="/{{ $saran->image }}" alt="Gambar Resep"
                              style="width:140px;height:100px;object-fit:cover;border-radius:10px;border:2px solid #1e293b;">
                         @endif
                         <div style="display:flex;flex-direction:column;gap:6px;font-size:0.82em;color:#94a3b8">
