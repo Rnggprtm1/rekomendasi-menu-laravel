@@ -79,7 +79,7 @@ class RecipeController extends Controller
 
     public function edit(string $id)
     {
-        $recipe = Recipe::where('id', $id)->firstOrFail();
+        $recipe = Recipe::findOrFail($id);
         return view('admin.resep.edit', compact('recipe'));
     }
 
@@ -95,7 +95,7 @@ class RecipeController extends Controller
             'steps'      => 'required|array|min:1',
         ]);
 
-        $recipe = Recipe::where('id', $id)->firstOrFail();
+        $recipe = Recipe::findOrFail($id);
 
         // Proses upload gambar baru jika ada, jika tidak pakai gambar lama
         $imagePath = $recipe->image;
@@ -130,7 +130,7 @@ class RecipeController extends Controller
 
     public function destroy(string $id)
     {
-        $recipe = Recipe::where('id', $id)->firstOrFail();
+        $recipe = Recipe::findOrFail($id);
         $name   = $recipe->name;
         $recipe->delete();
 

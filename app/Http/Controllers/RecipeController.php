@@ -30,7 +30,7 @@ class RecipeController extends Controller
      */
     public function apiShow(string $id)
     {
-        $recipe = Recipe::where('id', $id)->first();
+        $recipe = Recipe::find($id);
 
         if (!$recipe) {
             return response()->json(['error' => 'Resep tidak ditemukan'], 404);
