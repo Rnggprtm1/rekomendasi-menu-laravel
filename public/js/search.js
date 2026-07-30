@@ -204,7 +204,10 @@ function searchRecipes() {
     let matchedRecipes = [];
 
     recipes.forEach(recipe => {
-        let match = recipe.ingredients.filter(i => selectedIngredients.includes(i));
+        let match = recipe.ingredients.filter(i => {
+            let iLower = i.toLowerCase();
+            return selectedIngredients.some(selected => iLower.includes(selected));
+        });
         let score = match.length / recipe.ingredients.length;
 
         if (score > 0) {
@@ -238,7 +241,7 @@ function searchRecipes() {
             <img src="${recipe.image}" alt="${recipe.name}">
             <h3>${recipe.name}</h3>
             <p><i class='fas fa-chart-pie' style='color: #e67e22;'></i> Kecocokan: <strong>${scorePercentage}%</strong></p>
-            <button onclick='openRecipe(${recipe.id})'><i class='fas fa-eye'></i> Lihat Resep</button>
+            <button onclick='openRecipe("${recipe.id}")'><i class='fas fa-eye'></i> Lihat Resep</button>
         `;
 
         resultContainer.appendChild(card);

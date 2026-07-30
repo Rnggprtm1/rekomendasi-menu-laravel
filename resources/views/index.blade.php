@@ -120,7 +120,7 @@
     <script type="application/json" id="recipes-data">
         {!! json_encode($recipes->map(function($r) {
             return [
-                'id'          => (int) $r->id,
+                'id'          => (string) $r->_id,
                 'name'        => $r->name,
                 'ingredients' => $r->ingredients,
                 'time'        => (int) $r->time,

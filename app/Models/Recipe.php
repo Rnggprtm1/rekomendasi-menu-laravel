@@ -17,7 +17,6 @@ class Recipe extends Model
     // MongoDB sudah mengembalikan array secara native,
     // hanya cast tipe numerik saja supaya tidak jadi string
     protected $casts = [
-        'id'      => 'integer',
         'time'    => 'integer',
         'portion' => 'integer',
     ];

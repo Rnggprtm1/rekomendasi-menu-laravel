@@ -77,13 +77,13 @@ class RecipeController extends Controller
             ->with('success', "Resep \"{$request->name}\" berhasil ditambahkan! ");
     }
 
-    public function edit(int $id)
+    public function edit(string $id)
     {
         $recipe = Recipe::where('id', $id)->firstOrFail();
         return view('admin.resep.edit', compact('recipe'));
     }
 
-    public function update(Request $request, int $id)
+    public function update(Request $request, string $id)
     {
         $request->validate([
             'name'       => 'required|string|max:100',
@@ -128,7 +128,7 @@ class RecipeController extends Controller
             ->with('success', "Resep \"{$request->name}\" berhasil diperbarui! ");
     }
 
-    public function destroy(int $id)
+    public function destroy(string $id)
     {
         $recipe = Recipe::where('id', $id)->firstOrFail();
         $name   = $recipe->name;

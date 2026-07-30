@@ -28,7 +28,7 @@ class RecipeController extends Controller
     /**
      * API: Kembalikan satu resep berdasarkan id numerik.
      */
-    public function apiShow(int $id)
+    public function apiShow(string $id)
     {
         $recipe = Recipe::where('id', $id)->first();
 
