@@ -37,6 +37,17 @@ function startTimer() {
     isTimerRunning = true;
     playStartSound();
 
+    // Tampilkan instruksi langkah pertama langsung saat timer mulai
+    // (karena interval pertama langsung decrement, sehingga minute===time tidak pernah tercapai via loop)
+    if (activeRecipe) {
+        let startMinute = Math.floor(totalSeconds / 60);
+        let firstStep = activeRecipe.steps.find(function(s) { return s.minute === startMinute; });
+        if (firstStep) {
+            document.getElementById("instructionText").innerHTML =
+                "<i class='fas fa-bell fa-shake'></i> \uD83D\uDC49 <strong>Instruksi:</strong> " + firstStep.text;
+        }
+    }
+
     timer = setInterval(function () {
         if (totalSeconds > 0) {
             totalSeconds--;
