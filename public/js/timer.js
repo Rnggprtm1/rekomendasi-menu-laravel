@@ -1,26 +1,26 @@
 // ==========================================
-// LOGIKA MESIN TIMER
+// TIMER MEMASAK (Panel 2)
 // ==========================================
 
 let timer = null;
 let totalSeconds = 0;
-let isTimerRunning = false; // Flag: timer sedang aktif berjalan atau tidak
+let isTimerRunning = false;
 
 function updateDisplay() {
     let minutes = Math.floor(totalSeconds / 60);
     let seconds = totalSeconds % 60;
 
-    let displayM = minutes < 10 ? "0" + minutes : minutes;
-    let displayS = seconds < 10 ? "0" + seconds : seconds;
+    document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+    document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
 
-    document.getElementById("minutes").innerText = displayM;
-    document.getElementById("seconds").innerText = displayS;
-
-    // Hanya cek instruksi + bunyi kalau timer SEDANG berjalan (bukan saat buka resep)
+    // Cek instruksi step type=cook setiap menit habis
     if (isTimerRunning && activeRecipe && seconds === 0) {
-        let currentStep = activeRecipe.steps.find(step => step.minute === minutes);
-        if (currentStep) {
-            document.getElementById("instructionText").innerHTML = `<i class='fas fa-bell fa-shake'></i> 👉 <strong>Instruksi:</strong> ${currentStep.text}`;
+        let cookStep = (activeRecipe.steps || []).find(
+            s => s.type === 'cook' && s.minute === minutes
+        );
+        if (cookStep) {
+            document.getElementById("instructionText").innerHTML =
+                "<i class='fas fa-bell fa-shake'></i> \uD83D\uDC49 <strong>Instruksi:</strong> " + cookStep.text;
             playStepSound();
         }
     }
@@ -29,7 +29,6 @@ function updateDisplay() {
 function startTimer() {
     if (timer !== null) return;
 
-    // Tampilkan Pause & Reset, sembunyikan Mulai
     document.getElementById("btnMulai").style.display = "none";
     document.getElementById("btnPause").style.display = "";
     document.getElementById("btnReset").style.display = "";
@@ -37,14 +36,12 @@ function startTimer() {
     isTimerRunning = true;
     playStartSound();
 
-    // Tampilkan instruksi langkah pertama langsung saat timer mulai
-    // (karena interval pertama langsung decrement, sehingga minute===time tidak pernah tercapai via loop)
+    // Tampilkan langkah masak PERTAMA langsung saat Mulai ditekan
     if (activeRecipe) {
-        let startMinute = Math.floor(totalSeconds / 60);
-        let firstStep = activeRecipe.steps.find(function(s) { return s.minute === startMinute; });
-        if (firstStep) {
+        const firstCookStep = (activeRecipe.steps || []).find(s => s.type === 'cook');
+        if (firstCookStep) {
             document.getElementById("instructionText").innerHTML =
-                "<i class='fas fa-bell fa-shake'></i> \uD83D\uDC49 <strong>Instruksi:</strong> " + firstStep.text;
+                "<i class='fas fa-bell fa-shake'></i> \uD83D\uDC49 <strong>Instruksi:</strong> " + firstCookStep.text;
         }
     }
 
@@ -57,11 +54,11 @@ function startTimer() {
             timer = null;
             isTimerRunning = false;
 
-            // Kembalikan tombol ke state awal saat timer selesai
             document.getElementById("btnMulai").style.display = "";
             document.getElementById("btnPause").style.display = "none";
             document.getElementById("btnReset").style.display = "none";
-            document.getElementById("instructionText").innerHTML = "<i class='fas fa-party-horn'></i> Waktu memasak selesai! Sajikan selagi hangat! 🎉";
+            document.getElementById("instructionText").innerHTML =
+                "<i class='fas fa-party-horn'></i> Waktu memasak selesai! Sajikan selagi hangat! \uD83C\uDF89";
             playFinishSound();
         }
     }, 1000);
@@ -72,10 +69,8 @@ function pauseTimer() {
     timer = null;
     isTimerRunning = false;
 
-    // Kembalikan tombol Mulai (sebagai resume), sembunyikan Pause
     document.getElementById("btnMulai").style.display = "";
     document.getElementById("btnPause").style.display = "none";
-    // Reset tetap terlihat saat pause
     document.getElementById("btnReset").style.display = "";
 
     playPauseSound();
@@ -86,19 +81,94 @@ function resetTimer() {
     timer = null;
     isTimerRunning = false;
 
-    if (activeRecipe) {
-        totalSeconds = activeRecipe.time * 60;
-    } else {
-        totalSeconds = 0;
-    }
+    totalSeconds = activeRecipe ? activeRecipe.time * 60 : 0;
 
-    // Kembalikan ke state awal: hanya Mulai
     document.getElementById("btnMulai").style.display = "";
     document.getElementById("btnPause").style.display = "none";
     document.getElementById("btnReset").style.display = "none";
-
     document.getElementById("instructionText").innerText = "Tekan 'Mulai' untuk menjalankan timer pintar";
     updateDisplay();
+
+    playResetSound();
+}
+
+// ==========================================
+// TIMER MARINASI (Panel 1)
+// ==========================================
+
+let marinateTimer = null;
+let marinateTotalSeconds = 0;
+let isMarinateRunning = false;
+
+function updateMarinateDisplay() {
+    let minutes = Math.floor(marinateTotalSeconds / 60);
+    let seconds = marinateTotalSeconds % 60;
+
+    document.getElementById("marinateMinutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+    document.getElementById("marinateSeconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+}
+
+function startMarinateTimer() {
+    if (marinateTimer !== null) return;
+
+    document.getElementById("btnMarinateMulai").style.display = "none";
+    document.getElementById("btnMarinatePause").style.display = "";
+    document.getElementById("btnMarinateReset").style.display = "";
+
+    isMarinateRunning = true;
+    playStartSound();
+
+    document.getElementById("marinateInstructionText").innerHTML =
+        "<i class='fas fa-hourglass-start'></i> Marinasi sedang berjalan... ⏳";
+
+    marinateTimer = setInterval(function () {
+        if (marinateTotalSeconds > 0) {
+            marinateTotalSeconds--;
+            updateMarinateDisplay();
+        } else {
+            clearInterval(marinateTimer);
+            marinateTimer = null;
+            isMarinateRunning = false;
+
+            document.getElementById("btnMarinateMulai").style.display = "";
+            document.getElementById("btnMarinatePause").style.display = "none";
+            document.getElementById("btnMarinateReset").style.display = "none";
+
+            // Notifikasi 3x sesuai permintaan
+            document.getElementById("marinateInstructionText").innerHTML =
+                "<i class='fas fa-party-horn'></i> Marinasi Selesai! Marinasi Selesai! Marinasi Selesai! \uD83C\uDF89";
+            playFinishSound();
+
+            // Auto-pindah ke panel memasak setelah 2 detik
+            setTimeout(function() { nextPanel(); }, 2000);
+        }
+    }, 1000);
+}
+
+function pauseMarinateTimer() {
+    clearInterval(marinateTimer);
+    marinateTimer = null;
+    isMarinateRunning = false;
+
+    document.getElementById("btnMarinateMulai").style.display = "";
+    document.getElementById("btnMarinatePause").style.display = "none";
+    document.getElementById("btnMarinateReset").style.display = "";
+
+    playPauseSound();
+}
+
+function resetMarinateTimer() {
+    clearInterval(marinateTimer);
+    marinateTimer = null;
+    isMarinateRunning = false;
+
+    marinateTotalSeconds = activeRecipe ? (activeRecipe.marinate_time || 0) * 60 : 0;
+
+    document.getElementById("btnMarinateMulai").style.display = "";
+    document.getElementById("btnMarinatePause").style.display = "none";
+    document.getElementById("btnMarinateReset").style.display = "none";
+    document.getElementById("marinateInstructionText").innerText = "Tekan 'Mulai' untuk memulai timer marinasi";
+    updateMarinateDisplay();
 
     playResetSound();
 }
@@ -107,7 +177,6 @@ function resetTimer() {
 // SISTEM SUARA (Web Audio API)
 // ==========================================
 
-// Lazy-init AudioContext (harus setelah user gesture)
 function getAudioContext() {
     if (!window._audioCtx) {
         window._audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -115,7 +184,6 @@ function getAudioContext() {
     return window._audioCtx;
 }
 
-// Helper: main 1 nada
 function playTone(freq, type, volume, startOffset, duration) {
     const ctx = getAudioContext();
     const osc = ctx.createOscillator();
@@ -126,7 +194,6 @@ function playTone(freq, type, volume, startOffset, duration) {
 
     osc.type = type;
     osc.frequency.setValueAtTime(freq, ctx.currentTime + startOffset);
-
     gain.gain.setValueAtTime(0, ctx.currentTime + startOffset);
     gain.gain.linearRampToValueAtTime(volume, ctx.currentTime + startOffset + 0.01);
     gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + startOffset + duration);
@@ -135,45 +202,40 @@ function playTone(freq, type, volume, startOffset, duration) {
     osc.stop(ctx.currentTime + startOffset + duration + 0.02);
 }
 
-// 🟢 Suara MULAI: nada naik pendek (do-mi)
 function playStartSound() {
     try {
-        playTone(523.25, "sine", 0.4, 0.0, 0.12); // C5
-        playTone(659.25, "sine", 0.4, 0.13, 0.14); // E5
+        playTone(523.25, "sine", 0.4, 0.0, 0.12);
+        playTone(659.25, "sine", 0.4, 0.13, 0.14);
     } catch(e) { console.warn("Audio error:", e); }
 }
 
-// ⏸ Suara PAUSE: satu nada pendek turun
 function playPauseSound() {
     try {
-        playTone(440, "sine", 0.35, 0.0, 0.12); // A4
-        playTone(349.23, "sine", 0.25, 0.13, 0.14); // F4
+        playTone(440, "sine", 0.35, 0.0, 0.12);
+        playTone(349.23, "sine", 0.25, 0.13, 0.14);
     } catch(e) { console.warn("Audio error:", e); }
 }
 
-// ⏹ Suara RESET: satu beep pendek netral
 function playResetSound() {
     try {
-        playTone(392, "sine", 0.3, 0.0, 0.18); // G4
+        playTone(392, "sine", 0.3, 0.0, 0.18);
     } catch(e) { console.warn("Audio error:", e); }
 }
 
-// 🔔 Suara PERGANTIAN LANGKAH: 2 beep pendek & nyaring
 function playStepSound() {
     try {
-        playTone(880, "sine", 0.5, 0.00, 0.14); // A5 beep 1
-        playTone(880, "sine", 0.5, 0.18, 0.14); // A5 beep 2
+        playTone(880, "sine", 0.5, 0.00, 0.14);
+        playTone(880, "sine", 0.5, 0.18, 0.14);
     } catch(e) { console.warn("Audio error:", e); }
 }
 
-// 🎉 Suara SELESAI MEMASAK: fanfare 4 nada naik
 function playFinishSound() {
     try {
         const notes = [
-            [0.0,  523.25, 0.18], // C5
-            [0.2,  659.25, 0.18], // E5
-            [0.4,  783.99, 0.18], // G5
-            [0.65, 1046.5, 0.4 ], // C6 (panjang di akhir)
+            [0.0,  523.25, 0.18],
+            [0.2,  659.25, 0.18],
+            [0.4,  783.99, 0.18],
+            [0.65, 1046.5, 0.4 ],
         ];
         notes.forEach(([start, freq, dur]) => playTone(freq, "triangle", 0.45, start, dur));
     } catch(e) { console.warn("Audio error:", e); }

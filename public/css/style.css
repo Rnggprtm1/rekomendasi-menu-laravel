@@ -337,8 +337,8 @@ button {
 
 /* Khusus untuk ul (Bahan-bahan) biar gak ada titik dobel */
 .ingredient-section ul {
-    list-style: none; /* Ini yang matiin titik abu-abu bawaan */
-    padding-left: 0;  /* Biar teksnya agak mepet ke kiri dan rapi */
+    list-style: none;
+    padding-left: 0;
     line-height: 1.8;
     color: #636e72;
     font-size: 1.1em;
@@ -348,11 +348,216 @@ button {
 .step-section ol {
     line-height: 1.8;
     color: #636e72;
-    font-size: 1.1em;
+    font-size: 1.05em;
+    padding-left: 22px;
+    margin: 0;
+}
+
+/* ==========================================
+   PANEL SLIDER — 2 Panel kiri-kanan
+   ========================================== */
+
+.panels-wrapper {
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+/* Navigasi panah + dots */
+.panel-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+    padding: 0 4px;
+}
+
+.panel-nav-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.panel-label {
+    font-weight: 700;
+    font-size: 0.95em;
+    color: #2d3436;
+    letter-spacing: 0.3px;
+}
+
+.panel-dots {
+    display: flex;
+    gap: 8px;
+}
+
+.panel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #dfe6e9;
+    transition: all 0.35s ease;
+    cursor: pointer;
+}
+
+.panel-dot.active {
+    width: 28px;
+    border-radius: 5px;
+    background: #e67e22;
+}
+
+/* Arrow buttons */
+.panel-arrow {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    background: linear-gradient(135deg, #f39c12, #d35400);
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 14px rgba(230, 126, 34, 0.35);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    flex-shrink: 0;
+}
+
+.panel-arrow:hover:not(:disabled) {
+    transform: scale(1.15);
+    box-shadow: 0 6px 18px rgba(230, 126, 34, 0.5);
+}
+
+.panel-arrow:active:not(:disabled) {
+    transform: scale(0.95);
+}
+
+.panel-arrow:disabled {
+    background: #dfe6e9;
+    color: #b2bec3;
+    box-shadow: none;
+    cursor: default;
+}
+
+/* Panels track */
+.panels-track {
+    display: flex;
+    transition: transform 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
+    will-change: transform;
+    align-items: flex-start; /* biar tinggi panel independent */
+}
+
+.recipe-panel {
+    flex-shrink: 0;
+    box-sizing: border-box;
+    /* width diset via JS berdasarkan wrapper.offsetWidth */
+}
+
+/* Panel Header */
+.panel-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.05em;
+    font-weight: 700;
+    margin-bottom: 16px;
+    padding: 12px 18px;
+    border-radius: 14px;
+}
+
+.marinate-header {
+    background: linear-gradient(135deg, #e8f5fb, #d0eaf8);
+    color: #2980b9;
+    border: 1.5px solid #a9cce3;
+}
+
+.cook-header {
+    background: linear-gradient(135deg, #fdf2e9, #fde3c2);
+    color: #d35400;
+    border: 1.5px solid #f0b27a;
+}
+
+/* Step type badges */
+.step-label-prep {
+    display: inline-block;
+    font-weight: 700;
+    color: #74b9ff;
+    font-size: 0.82em;
+    background: #f0f7ff;
+    border: 1px solid #b3d7ff;
+    padding: 1px 9px;
+    border-radius: 20px;
+    margin-right: 6px;
+}
+
+.cook-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #f39c12, #d35400);
+    color: white;
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-size: 0.82em;
+    font-weight: 700;
+    margin-right: 6px;
+    margin-bottom: 2px;
+    white-space: nowrap;
+}
+
+/* Step sections dalam panel */
+.marinate-step-section {
+    background: linear-gradient(135deg, #f0f9ff, #e8f4fb);
+    border: 1px solid #c8e8f8;
+}
+
+.cook-step-section {
+    background: #f8f9fa;
+}
+
+/* ==========================================
+   TIMER MARINASI (Panel 1)
+   ========================================== */
+
+.marinate-timer-section {
+    background: linear-gradient(135deg, #eaf5fb, #d6eaf8) !important;
+    border: 2px dashed #2980b9 !important;
+}
+
+.marinate-timer-section h3 {
+    color: #2980b9 !important;
+}
+
+#marinateTimerDisplay {
+    font-size: 60px;
+    font-weight: 800;
+    color: #2d3436;
+    margin: 15px 0 25px 0;
+    text-shadow: 2px 2px 0px white, 4px 4px 0px rgba(41, 128, 185, 0.15);
+}
+
+#marinateInstructionText {
+    font-weight: 700;
+    margin-top: 20px;
+    font-size: 18px;
+    color: #2471a3;
+    min-height: 30px;
+    padding: 14px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+}
+
+.marinate-btn {
+    background: linear-gradient(135deg, #2980b9, #1a5276) !important;
+}
+
+.marinate-btn:hover {
+    box-shadow: 0 8px 15px rgba(41, 128, 185, 0.4) !important;
 }
 
 /* --- BAGIAN TIMER --- */
 .timer-section {
+
     margin-top: 40px;
     text-align: center;
     background: linear-gradient(135deg, #fffcf9, #fdf2e9);

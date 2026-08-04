@@ -61,26 +61,89 @@
             <ul id="detailIngredients"></ul>
         </div>
 
-        <div class="step-section">
-            <h3><i class="fas fa-list-ol"></i> Langkah Memasak</h3>
-            <ol id="detailSteps"></ol>
-        </div>
+        {{-- 2-Panel Slider: Panel 1 = Marinasi, Panel 2 = Memasak --}}
+        <div class="panels-wrapper" id="panelsWrapper">
 
-        <div class="timer-section">
-            <h3><i class="fas fa-stopwatch"></i> Timer Pintar</h3>
-            <div id="timerDisplay">
-                <span id="minutes">00</span> :
-                <span id="seconds">00</span>
+            {{-- Navigasi Panah (hanya muncul jika resep punya marinasi) --}}
+            <div class="panel-nav" id="panelNav" style="display:none">
+                <button class="panel-arrow" id="btnPrevPanel" onclick="prevPanel()" disabled>
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="panel-nav-center">
+                    <span class="panel-label" id="panelLabel">🧂 Marinasi</span>
+                    <div class="panel-dots">
+                        <span class="panel-dot active" id="dot0" onclick="goToPanel(0)"></span>
+                        <span class="panel-dot" id="dot1" onclick="goToPanel(1)"></span>
+                    </div>
+                </div>
+                <button class="panel-arrow" id="btnNextPanel" onclick="nextPanel()">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
             </div>
 
-            <div class="timer-controls">
-                <button class="timer-button" id="btnMulai" onclick="startTimer()"><i class="fas fa-play"></i> Mulai</button>
-                <button class="timer-button" id="btnPause" onclick="pauseTimer()" style="display:none"><i class="fas fa-pause"></i> Pause</button>
-                <button class="timer-button" id="btnReset" onclick="resetTimer()" style="display:none"><i class="fas fa-stop"></i> Reset</button>
-            </div>
+            {{-- Track yang bergeser kiri-kanan --}}
+            <div class="panels-track" id="panelsTrack">
 
-            <p id="instructionText"></p>
-        </div>
+                {{-- PANEL 1: MARINASI --}}
+                <div class="recipe-panel" id="panelMarinate">
+                    <div class="panel-header marinate-header">
+                        <i class="fas fa-clock-rotate-left"></i> Tahap Marinasi
+                    </div>
+                    <div class="step-section marinate-step-section">
+                        <ol id="marinateSteps"></ol>
+                    </div>
+                    <div class="timer-section marinate-timer-section">
+                        <h3><i class="fas fa-hourglass-half"></i> Timer Marinasi</h3>
+                        <div id="marinateTimerDisplay">
+                            <span id="marinateMinutes">00</span> :
+                            <span id="marinateSeconds">00</span>
+                        </div>
+                        <div class="timer-controls">
+                            <button class="timer-button marinate-btn" id="btnMarinateMulai" onclick="startMarinateTimer()">
+                                <i class="fas fa-play"></i> Mulai
+                            </button>
+                            <button class="timer-button marinate-btn" id="btnMarinatePause" onclick="pauseMarinateTimer()" style="display:none">
+                                <i class="fas fa-pause"></i> Pause
+                            </button>
+                            <button class="timer-button marinate-btn" id="btnMarinateReset" onclick="resetMarinateTimer()" style="display:none">
+                                <i class="fas fa-stop"></i> Reset
+                            </button>
+                        </div>
+                        <p id="marinateInstructionText">Tekan 'Mulai' untuk memulai timer marinasi</p>
+                    </div>
+                </div>
+
+                {{-- PANEL 2: MEMASAK --}}
+                <div class="recipe-panel" id="panelCook">
+                    <div class="panel-header cook-header">
+                        <i class="fas fa-fire-flame-curved"></i> Langkah Memasak
+                    </div>
+                    <div class="step-section cook-step-section">
+                        <ol id="cookSteps"></ol>
+                    </div>
+                    <div class="timer-section cook-timer-section">
+                        <h3><i class="fas fa-stopwatch"></i> Timer Pintar</h3>
+                        <div id="timerDisplay">
+                            <span id="minutes">00</span> :
+                            <span id="seconds">00</span>
+                        </div>
+                        <div class="timer-controls">
+                            <button class="timer-button" id="btnMulai" onclick="startTimer()">
+                                <i class="fas fa-play"></i> Mulai
+                            </button>
+                            <button class="timer-button" id="btnPause" onclick="pauseTimer()" style="display:none">
+                                <i class="fas fa-pause"></i> Pause
+                            </button>
+                            <button class="timer-button" id="btnReset" onclick="resetTimer()" style="display:none">
+                                <i class="fas fa-stop"></i> Reset
+                            </button>
+                        </div>
+                        <p id="instructionText">Tekan 'Mulai' untuk menjalankan timer pintar</p>
+                    </div>
+                </div>
+
+            </div>{{-- end panels-track --}}
+        </div>{{-- end panels-wrapper --}}
 
         <button class="back-button" onclick="closeRecipe()">
             <i class="fas fa-arrow-left"></i> Kembali ke Pencarian
