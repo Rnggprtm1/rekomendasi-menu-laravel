@@ -189,8 +189,20 @@
         ],
         "steps": [
             {
-                "text": "Potong ayam tipis, baluri ayam dengan tepung, goreng ayam di minyak panas",
-                "minute": 0
+                "text": "Campurkan bumbu marinasi (garam, bawang putih bubuk, lada) ke dalam ayam yang sudah dipotong tipis. Aduk rata dan diamkan selama 15 menit.",
+                "minute": 15
+            },
+            {
+                "text": "Campur semua bahan tepung (tepung terigu, maizena, garam, kaldu ayam, baking powder, bawang putih bubuk, bubuk cabe, lada) dalam wadah terpisah.",
+                "minute": 17
+            },
+            {
+                "text": "Baluri potongan ayam yang sudah dimarinasi ke dalam campuran tepung hingga merata.",
+                "minute": 20
+            },
+            {
+                "text": "Goreng ayam dalam minyak panas dengan api sedang hingga berwarna keemasan dan matang sempurna. Angkat dan tiriskan.",
+                "minute": 30
             }
         ],
         "time": 30,
@@ -247,8 +259,24 @@
         ],
         "steps": [
             {
-                "text": "Tumis perbumbuan, masukan ayam, tambahkan air, masukan sayuran, tambahkan chili sesuai selera.",
-                "minute": 0
+                "text": "Tumis bawang merah, bawang putih, dan rempah sup dalam sedikit minyak hingga harum dan matang.",
+                "minute": 5
+            },
+            {
+                "text": "Masukkan potongan ayam dan aduk bersama bumbu hingga ayam berubah warna dan setengah matang.",
+                "minute": 10
+            },
+            {
+                "text": "Tambahkan air secukupnya (sekitar 500-700ml), tutup panci dan didihkan dengan api sedang.",
+                "minute": 20
+            },
+            {
+                "text": "Masukkan kentang, wortel yang sudah dipotong, dan kaldu jamur. Masak hingga sayuran empuk.",
+                "minute": 28
+            },
+            {
+                "text": "Tambahkan garam, daun sup, daun ketumbar, dan chili sesuai selera. Koreksi rasa lalu sajikan.",
+                "minute": 30
             }
         ],
         "time": 30,
@@ -291,47 +319,40 @@
     {
         "name": "Bola Telur - 2 BAHAN AJA!",
         "ingredients": [
-            "Bahan:"
+            "3-4 butir telur",
+            "Soft tofu secukupnya",
+            "Garam & lada secukupnya",
+            "Kaldu bubuk secukupnya",
+            "Mozarella secukupnya",
+            "Chili oil (opsional)"
         ],
         "steps": [
             {
-                "text": "Salah satu tersimpel nih. Bahkan gausah pake kompor masaknya pun bisa. Telurnya fluffy bgt trs kalo mau tambahin moza cheesy, enak banget lah.",
-                "minute": 0
+                "text": "Pecahkan 3-4 telur ke dalam mangkuk, lalu hancurkan soft tofu dan masukkan ke dalam telur.",
+                "minute": 2
             },
             {
-                "text": "3-4 telur",
-                "minute": 0
+                "text": "Tambahkan garam, lada, dan kaldu bubuk secukupnya. Aduk hingga semua bahan tercampur merata.",
+                "minute": 3
             },
             {
-                "text": "Soft tofu",
-                "minute": 0
+                "text": "Tambahkan potongan mozarella ke dalam adonan jika ingin lebih cheesy.",
+                "minute": 4
             },
             {
-                "text": "Salt pepper",
-                "minute": 0
+                "text": "Tuang adonan ke dalam plastic wrap, bentuk menjadi bola, lalu ikat erat.",
+                "minute": 6
             },
             {
-                "text": "Kaldu bubuk",
-                "minute": 0
+                "text": "Kukus selama 10-12 menit hingga matang, atau masak di microwave selama 3-4 menit.",
+                "minute": 18
             },
             {
-                "text": "Mozarella",
-                "minute": 0
-            },
-            {
-                "text": "Chili oil",
-                "minute": 0
-            },
-            {
-                "text": "Pecahkan telur dan hancurkan tofu kemudian tambahkan tepung masukan seosoning dan aduk hingga merata kemudian wrap dengan plastic wrap.",
-                "minute": 0
-            },
-            {
-                "text": "Masaknya bisa dikukus atau di microwave.",
-                "minute": 0
+                "text": "Angkat, buka plastic wrap, dan sajikan dengan siraman chili oil di atasnya.",
+                "minute": 20
             }
         ],
-        "time": 30,
+        "time": 20,
         "difficulty": "Mudah",
         "portion": 2,
         "image": "images/images (9).jpg"
@@ -544,101 +565,50 @@
     {
         "name": "Slow cooker beef brisket pasta",
         "ingredients": [
-            "Ingredients"
+            "1.2 kg beef brisket",
+            "½ tsp salt",
+            "1 tsp black pepper",
+            "2 tbsp extra virgin olive oil",
+            "1 brown onion, finely chopped",
+            "3 garlic cloves, chopped",
+            "400g tin diced tomatoes",
+            "3 tablespoons tomato paste",
+            "½ cup red wine",
+            "1 cup beef stock",
+            "1 tablespoon dried Italian herbs",
+            "350g pasta (any kind)",
+            "Grated Parmesan cheese (to serve)",
+            "Fresh parsley (to serve)"
         ],
         "steps": [
             {
-                "text": "1.2 kg beef brisket",
-                "minute": 0
-            },
-            {
-                "text": "½ tsp salt",
-                "minute": 0
-            },
-            {
-                "text": "1 tsp black pepper",
-                "minute": 0
-            },
-            {
-                "text": "2 tbsp extra virgin olive oil",
-                "minute": 0
-            },
-            {
-                "text": "1 brown onion, finely chopped",
-                "minute": 0
-            },
-            {
-                "text": "3 garlic cloves, chopped",
-                "minute": 0
-            },
-            {
-                "text": "400g tin diced tomatoes",
-                "minute": 0
-            },
-            {
-                "text": "3 tablespoons tomato paste",
-                "minute": 0
-            },
-            {
-                "text": "½ cup red wine",
-                "minute": 0
-            },
-            {
-                "text": "1 cup beef stock",
-                "minute": 0
-            },
-            {
-                "text": "1 tablespoon dried Italian herbs",
-                "minute": 0
-            },
-            {
-                "text": "350g pasta (any kind you like)",
-                "minute": 0
-            },
-            {
-                "text": "To serve:",
-                "minute": 0
-            },
-            {
-                "text": "Grated Parmesan cheese",
-                "minute": 0
-            },
-            {
-                "text": "Fresh parsley",
-                "minute": 0
-            },
-            {
-                "text": "Method:",
-                "minute": 0
-            },
-            {
                 "text": "Pat the beef brisket dry and season with salt and pepper. Heat olive oil in a frying pan over medium-high heat. Sear the brisket on all sides until well browned.",
-                "minute": 0
+                "minute": 10
             },
             {
                 "text": "Transfer the seared brisket to your slow cooker. Add onion, garlic, tinned tomatoes, tomato paste, red wine, beef stock, and dried Italian herbs.",
-                "minute": 0
+                "minute": 15
             },
             {
                 "text": "Cover and cook on low for 8 hours or high for 4 hours, until the brisket is fall-apart tender.",
-                "minute": 0
+                "minute": 255
             },
             {
-                "text": "⁠Remove the brisket, shred it using two forks, then return it to the sauce in the slow cooker. Stir well to combine.",
-                "minute": 0
+                "text": "Remove the brisket, shred it using two forks, then return it to the sauce in the slow cooker. Stir well to combine.",
+                "minute": 265
             },
             {
                 "text": "Meanwhile, cook your pasta separately according to packet instructions. Drain and add it to the slow cooker. Stir through the brisket sauce until well coated.",
-                "minute": 0
+                "minute": 275
             },
             {
                 "text": "Dish it up with a generous sprinkle of grated Parmesan and fresh parsley. Season to taste.",
-                "minute": 0
+                "minute": 280
             }
         ],
-        "time": 30,
-        "difficulty": "Mudah",
-        "portion": 2,
+        "time": 280,
+        "difficulty": "Sedang",
+        "portion": 4,
         "image": "images/images (14).png"
     },
     {
@@ -680,11 +650,19 @@
         ],
         "steps": [
             {
-                "text": "Tumis bawang putih dengan sedikit minyak, masukan poleng masukan seasoning lalu masukan sedikit minyak wijen tumis sampai polengnya layu kemudian poleng siap dihidangkan.",
-                "minute": 0
+                "text": "Panaskan sedikit minyak di wajan dengan api sedang, lalu tumis bawang putih yang sudah diiris atau dimemarkan hingga harum dan keemasan.",
+                "minute": 3
+            },
+            {
+                "text": "Masukkan poleng (bayam jepang) ke dalam wajan, aduk bersama bawang putih. Tambahkan kaldu jamur, garam, dan sejumput gula pasir.",
+                "minute": 6
+            },
+            {
+                "text": "Tuangkan minyak wijen, aduk rata dan tumis hingga poleng layu dan matang. Angkat dan sajikan.",
+                "minute": 8
             }
         ],
-        "time": 30,
+        "time": 8,
         "difficulty": "Mudah",
         "portion": 2,
         "image": "images/images (16).jpg"
@@ -700,11 +678,23 @@
         ],
         "steps": [
             {
-                "text": "Rebus kentang kemudian di smash, lalu ditambahkan saus bolognese,sosis dan mozzarella  diatas nya lalu dipanggang selama 15 mennit.",
-                "minute": 15
+                "text": "Rebus kentang hingga empuk (sekitar 15-20 menit). Angkat dan tiriskan.",
+                "minute": 20
+            },
+            {
+                "text": "Letakkan kentang di atas loyang lalu smash (pipihkan) menggunakan garpu atau dasar gelas hingga tipis merata.",
+                "minute": 23
+            },
+            {
+                "text": "Tuang saus bolognese di atas kentang yang sudah dismash, lalu tambahkan irisan sosis di atasnya.",
+                "minute": 25
+            },
+            {
+                "text": "Taburi mozzarella secara merata di atas topping. Panggang dalam oven atau air fryer selama 15 menit hingga keju meleleh dan keemasan.",
+                "minute": 40
             }
         ],
-        "time": 30,
+        "time": 40,
         "difficulty": "Mudah",
         "portion": 2,
         "image": "images/images (17).webp"
@@ -749,73 +739,58 @@
     {
         "name": "Caramelized garlic butter chicken bite",
         "ingredients": [
-            "Bahan:",
             "500gr paha fillet",
             "½ sdt garam",
             "2 sdt kaldu ayam bubuk",
             "5 sdm maizena",
             "½ sdt lada",
-            "Air dingin secukupnya"
+            "Air dingin secukupnya",
+            "Seasoning saus:",
+            "10 siung bawang putih",
+            "½ bawang Bombay",
+            "1 sdm gula",
+            "½ sdm cabe bubuk",
+            "1 sdt lada hitam",
+            "½ sdt Italian herb",
+            "1 sdm kecap inggris",
+            "1 sdm kecap asin",
+            "1 sdm saus tiram",
+            "½ sdt garam",
+            "½ sdt kaldu bubuk",
+            "Salted butter secukupnya",
+            "Bawang merah iris secukupnya"
         ],
         "steps": [
             {
-                "text": "Marinasi ayam dengan bumbu selama 15-30 menit masukan tepung kedalam ayam kemudian goreng sampai matang",
+                "text": "Marinasi ayam dengan garam, kaldu ayam bubuk, dan lada selama 15-30 menit hingga bumbu meresap.",
                 "minute": 30
             },
             {
-                "text": "Seasoning:",
-                "minute": 0
+                "text": "Masukkan tepung maizena ke dalam ayam yang sudah dimarinasi, aduk hingga semua potongan ayam terbalut tepung dengan tambahan sedikit air dingin.",
+                "minute": 33
             },
             {
-                "text": "10 siung bawang putih",
-                "minute": 0
+                "text": "Goreng ayam dalam minyak panas hingga matang dan berwarna keemasan, angkat dan tiriskan.",
+                "minute": 45
             },
             {
-                "text": "½ Bombay",
-                "minute": 0
+                "text": "Chopper bawang putih, bawang Bombay, dan semua bumbu saus sampai halus.",
+                "minute": 48
             },
             {
-                "text": "1 sdm gula",
-                "minute": 0
+                "text": "Panaskan salted butter di wajan, tumis bawang merah iris, bawang putih, dan bawang Bombay hingga harum dan mulai karamelisasi.",
+                "minute": 53
             },
             {
-                "text": "½ sdm cabe bubuk",
-                "minute": 0
+                "text": "Masukkan semua bumbu saus (kecap inggris, kecap asin, saus tiram, gula, cabe bubuk, lada hitam, Italian herb, garam, kaldu bubuk), aduk rata dan masak hingga saus mengental.",
+                "minute": 58
             },
             {
-                "text": "1 sdt lada hitam",
-                "minute": 0
-            },
-            {
-                "text": "½ sdt Italian herb",
-                "minute": 0
-            },
-            {
-                "text": "1 sdm kecap inggris",
-                "minute": 0
-            },
-            {
-                "text": "1 sdm kecap asin",
-                "minute": 0
-            },
-            {
-                "text": "1 sdm saus tiram",
-                "minute": 0
-            },
-            {
-                "text": "½ sdt garam",
-                "minute": 0
-            },
-            {
-                "text": "½ sdt kaldu bubuk",
-                "minute": 0
-            },
-            {
-                "text": "Chopper sampai halus, lalu tumis hingga harum masukkan salted butter, irisan bawang merah, bawang putih dan bawang Bombay, lalu seasoning, masukan ayam aduk hingga merata.",
-                "minute": 0
+                "text": "Masukkan ayam goreng ke dalam saus, aduk hingga semua potongan ayam terbalut saus merata. Sajikan selagi panas.",
+                "minute": 60
             }
         ],
-        "time": 30,
+        "time": 60,
         "difficulty": "Mudah",
         "portion": 2,
         "image": "images/images (19).webp"
@@ -864,84 +839,42 @@
     },
     {
         "name": "Mini korean corn dog hack~",
-        "ingredients": [],
+        "ingredients": [
+            "Crescent dough (store bought)",
+            "Chunks of mozzarella cheese",
+            "Mini sausages",
+            "2 eggs, beaten",
+            "Panko breadcrumbs",
+            "Frying oil",
+            "Samyang buldak sauce",
+            "Mayo",
+            "Sugar"
+        ],
         "steps": [
             {
-                "text": "for this hack, use store bought crescent dough to make the easiest mini korean corn dogs at home.",
-                "minute": 0
+                "text": "(Optional) Mix together mayo + samyang buldak original hot sauce to make a buldak spicy mayo. Set aside.",
+                "minute": 2
             },
             {
-                "text": "you'll need:",
-                "minute": 0
-            },
-            {
-                "text": "chunks of mozzarella cheese",
-                "minute": 0
-            },
-            {
-                "text": "mini sausages",
-                "minute": 0
-            },
-            {
-                "text": "crescent dough",
-                "minute": 0
-            },
-            {
-                "text": "2 eggs, beaten",
-                "minute": 0
-            },
-            {
-                "text": "panko breadcrumbs",
-                "minute": 0
-            },
-            {
-                "text": "frying oil",
-                "minute": 0
-            },
-            {
-                "text": "toppings:",
-                "minute": 0
-            },
-            {
-                "text": "samyang buldak sauce",
-                "minute": 0
-            },
-            {
-                "text": "mayo",
-                "minute": 0
-            },
-            {
-                "text": "sugar",
-                "minute": 0
-            },
-            {
-                "text": "optional: make a buldak spicy mayo by mixing together mayo + samyang buldak original hot sauce",
-                "minute": 0
-            },
-            {
-                "text": "directions:",
-                "minute": 0
-            },
-            {
-                "text": "wrap a piece of crescent dough tightly around your mozzarella or sausage + cheese combo, making sure there are no openings so the cheese doesn't leak out while frying.",
-                "minute": 0
-            },
-            {
-                "text": "coat in egg wash, then cover in panko breadcrumbs.",
-                "minute": 0
-            },
-            {
-                "text": "deep fry over medium low heat for a few minutes (about 6-7 mins) until golden brown and crispy. keep the heat lower so the crescent dough has enough time to fully cook while the cheese gets melty ca",
+                "text": "Wrap a piece of crescent dough tightly around your mozzarella or sausage + cheese combo, making sure there are no openings so the cheese doesn't leak out while frying.",
                 "minute": 7
             },
             {
-                "text": "finish with buldak sauce, spicy buldak mayo, and a sprinkle of sugar for that classic korean corn dog combo.",
-                "minute": 0
+                "text": "Coat the wrapped corn dogs in egg wash (beaten egg), then cover thoroughly in panko breadcrumbs.",
+                "minute": 10
+            },
+            {
+                "text": "Deep fry over medium-low heat for about 6-7 minutes until golden brown and crispy. Keep the heat lower so the crescent dough has enough time to fully cook while the cheese gets melty.",
+                "minute": 17
+            },
+            {
+                "text": "Finish with buldak sauce, spicy buldak mayo, and a sprinkle of sugar for that classic Korean corn dog combo. Serve immediately.",
+                "minute": 20
             }
         ],
-        "time": 7,
+        "time": 20,
         "difficulty": "Mudah",
-        "portion": 2,
+        "portion": 4,
         "image": "images/images (21).webp"
     },
     {
