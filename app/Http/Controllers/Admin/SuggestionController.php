@@ -34,12 +34,8 @@ class SuggestionController extends Controller
     {
         $suggestion = Suggestion::findOrFail($id);
 
-        // Ambil id terbesar lalu +1
-        $lastId = Recipe::orderBy('id', 'desc')->value('id') ?? 0;
-
-        // Buat resep baru dari data saran
+        // Buat resep baru dari data saran (MongoDB akan otomatis men-generate _id)
         Recipe::create([
-            'id'          => $lastId + 1,
             'name'        => $suggestion->judul ?: 'Resep Tanpa Nama',
             'ingredients' => $suggestion->ingredients ?? [],
             'time'        => (int) ($suggestion->time ?? 15),

@@ -59,11 +59,8 @@ class RecipeController extends Controller
             ->values()
             ->toArray();
 
-        // Ambil id terbesar lalu +1
-        $lastId = Recipe::orderBy('id', 'desc')->value('id') ?? 0;
-
+        // MongoDB akan otomatis men-generate _id
         Recipe::create([
-            'id'          => $lastId + 1,
             'name'        => $request->name,
             'ingredients' => $ingredients,
             'time'        => (int) $request->time,

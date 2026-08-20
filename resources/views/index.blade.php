@@ -70,7 +70,7 @@
                     <i class="fas fa-chevron-left"></i>
                 </button>
                 <div class="panel-nav-center">
-                    <span class="panel-label" id="panelLabel">🧂 Marinasi</span>
+                    <span class="panel-label" id="panelLabel">Marinasi</span>
                     <div class="panel-dots">
                         <span class="panel-dot active" id="dot0" onclick="goToPanel(0)"></span>
                         <span class="panel-dot" id="dot1" onclick="goToPanel(1)"></span>
@@ -87,13 +87,13 @@
                 {{-- PANEL 1: MARINASI --}}
                 <div class="recipe-panel" id="panelMarinate">
                     <div class="panel-header marinate-header">
-                        <i class="fas fa-clock-rotate-left"></i> Tahap Marinasi
+                        Tahap Marinasi
                     </div>
                     <div class="step-section marinate-step-section">
                         <ol id="marinateSteps"></ol>
                     </div>
                     <div class="timer-section marinate-timer-section">
-                        <h3><i class="fas fa-hourglass-half"></i> Timer Marinasi</h3>
+                        <h3>Timer Marinasi</h3>
                         <div id="marinateTimerDisplay">
                             <span id="marinateMinutes">00</span> :
                             <span id="marinateSeconds">00</span>
@@ -116,13 +116,13 @@
                 {{-- PANEL 2: MEMASAK --}}
                 <div class="recipe-panel" id="panelCook">
                     <div class="panel-header cook-header">
-                        <i class="fas fa-fire-flame-curved"></i> Langkah Memasak
+                        Langkah Memasak
                     </div>
                     <div class="step-section cook-step-section">
                         <ol id="cookSteps"></ol>
                     </div>
                     <div class="timer-section cook-timer-section">
-                        <h3><i class="fas fa-stopwatch"></i> Timer Pintar</h3>
+                        <h3>Timer Pintar</h3>
                         <div id="timerDisplay">
                             <span id="minutes">00</span> :
                             <span id="seconds">00</span>

@@ -101,7 +101,7 @@ function renderCookPanel() {
             langkahCount++;
             li.innerHTML = `<span class="step-label-prep">Langkah ${langkahCount}:</span> <span style="color:#636e72">${step.text}</span>`;
         } else { // cook
-            li.innerHTML = `<span class="cook-badge"><i class="fas fa-fire-flame-curved"></i> Menit ke-${step.minute}</span> ${step.text}`;
+            li.innerHTML = `<span class="cook-badge">Menit ke-${step.minute}</span> ${step.text}`;
         }
         list.appendChild(li);
     });
@@ -122,6 +122,12 @@ function updatePanelPosition(animate) {
     }
 
     const panelWidth = wrapper.offsetWidth;
+    
+    // Set width setiap panel agar slider tidak berantakan
+    document.querySelectorAll('.recipe-panel').forEach(panel => {
+        panel.style.width = panelWidth + 'px';
+    });
+    
     track.style.transform = `translateX(${-panelWidth * currentPanel}px)`;
 
     // Dot indicators
@@ -138,7 +144,7 @@ function updatePanelPosition(animate) {
     // Panel label
     const label = document.getElementById('panelLabel');
     if (label) {
-        label.innerText = currentPanel === 0 ? '🧂 Marinasi' : '🍳 Memasak';
+        label.innerText = currentPanel === 0 ? 'Marinasi' : 'Memasak';
     }
 
     // Restore transition after forced instant snap
