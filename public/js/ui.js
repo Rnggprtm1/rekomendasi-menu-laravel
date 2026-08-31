@@ -90,18 +90,27 @@ function renderMarinatePanel() {
 function renderCookPanel() {
     const list = document.getElementById("cookSteps");
     list.innerHTML = "";
-    const nonMarinateSteps = (activeRecipe.steps || []).filter(s => s.type !== 'marinate');
+    const allSteps = (activeRecipe.steps || []);
 
-    let langkahCount = 0;
-    nonMarinateSteps.forEach(step => {
+    if (allSteps.length === 0) {
+        const li = document.createElement("li");
+        li.innerHTML = "<em style='color:#b2bec3'>Belum ada langkah memasak.</em>";
+        list.appendChild(li);
+        return;
+    }
+
+    let prepCount = 0;
+    allSteps.forEach(step => {
         const li = document.createElement("li");
         li.style.marginBottom = "10px";
         li.style.lineHeight = "1.65";
-        if (step.type === 'prep') {
-            langkahCount++;
-            li.innerHTML = `<span class="step-label-prep">Langkah ${langkahCount}:</span> <span style="color:#636e72">${step.text}</span>`;
-        } else { // cook
+        if (step.minute > 0) {
+            // Step dengan waktu spesifik → tampil dengan badge menit
             li.innerHTML = `<span class="cook-badge">Menit ke-${step.minute}</span> ${step.text}`;
+        } else {
+            // Step persiapan (minute = 0) → tampil sebagai langkah biasa
+            prepCount++;
+            li.innerHTML = `<span class="step-label-prep">Langkah ${prepCount}:</span> <span style="color:#636e72">${step.text}</span>`;
         }
         list.appendChild(li);
     });

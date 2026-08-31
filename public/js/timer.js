@@ -13,10 +13,10 @@ function updateDisplay() {
     document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
     document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
 
-    // Cek instruksi step type=cook setiap menit habis
+    // Cek instruksi step berdasarkan menit saat ini
     if (isTimerRunning && activeRecipe && seconds === 0) {
         let cookStep = (activeRecipe.steps || []).find(
-            s => s.type === 'cook' && s.minute === minutes
+            s => s.minute > 0 && s.minute === minutes
         );
         if (cookStep) {
             document.getElementById("instructionText").innerHTML =
@@ -36,9 +36,11 @@ function startTimer() {
     isTimerRunning = true;
     playStartSound();
 
-    // Tampilkan langkah masak PERTAMA langsung saat Mulai ditekan
+    // Tampilkan instruksi yang sesuai menit awal timer
     if (activeRecipe) {
-        const firstCookStep = (activeRecipe.steps || []).find(s => s.type === 'cook');
+        const startMinutes = Math.floor(totalSeconds / 60);
+        const firstCookStep = (activeRecipe.steps || []).find(s => s.minute > 0 && s.minute === startMinutes)
+            || (activeRecipe.steps || []).find(s => s.minute > 0); // fallback: step pertama yang ada menit-nya
         if (firstCookStep) {
             document.getElementById("instructionText").innerHTML =
                 "<i class='fas fa-bell fa-shake'></i> \uD83D\uDC49 <strong>Instruksi:</strong> " + firstCookStep.text;
