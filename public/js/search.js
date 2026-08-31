@@ -132,15 +132,7 @@ function addIngredient() {
     // Validasi 1: Cegah input kosong
     if (rawValue === "") return;
 
-    // Validasi 2: Hanya boleh 1 bahan
-    if (selectedIngredients.length >= 1) {
-        showWarning("Kamu hanya bisa memasukkan <strong>1 bahan</strong> saja. Hapus bahan yang ada dulu sebelum menambah yang baru!");
-        input.value = "";
-        input.focus();
-        return;
-    }
-
-    // Validasi 3: Harus bahan makanan
+    // Validasi 2: Harus bahan makanan
     if (!isFoodIngredient(rawValue)) {
         showWarning(`"<strong>${rawValue}</strong>" bukan bahan makanan. Masukkan bahan makanan yang valid, seperti: <em>ayam, telur, tempe, wortel</em>, dll.`);
         input.value = "";
